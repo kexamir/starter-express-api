@@ -1,7 +1,7 @@
-const express = require('express')
-const app = express()
-app.all('/', (req, res) => {
-    console.log("Just got a request!")
-    res.send('Yo!')
-})
-app.listen(process.env.PORT || 3000)
+const TelegramBot=require('node-telegram-bot-api');
+const token ="5700381502:AAE0aIizByDmS73mjs_Ywl_9QhFzCGEGqbA";
+const bot = new TelegramBot(token,{polling:true});
+ bot.onText(/\/start/,msg=>{
+    //console.log(msg)
+    bot.sendMessage(msg.chat.id,"به ربات تلگرام قطبینو خوش آمدید.")
+ }
